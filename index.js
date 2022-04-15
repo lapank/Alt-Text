@@ -2,25 +2,31 @@
 const maxChar = 160;
 const count = document.getElementById('count');
 const punct = document.getElementById('punct');
-const punctuation =[' ',',','.',';',':','-','!','"',"'",'(',')'];
+const punctuation =[',','.',';',':','-','!','"',"'",'(',')','?'];
+let found = false;
+//let punctCount = 0;
 
 let charCount = e => {
   const keyName = e.key;
-  let altText = document.getElementById('altText').value.length;
-  countColor(altText);
-  count.innerHTML = altText;
-  if (punctCheck(keyName)){
+  let altCount = document.getElementById('altText').value.length;
+  let altChar = document.getElementById('altText').value;
+  punctCheck(altChar);
+  countColor(altCount);
+  count.innerHTML = altCount;
+  if(punctCheck(altChar)){
     punct.innerHTML = "Yes";
+  }else{
+    punct.innerHTML = "No";
   }
   
 }
 
-let countColor = (altText) =>{
+let countColor = (altCount) =>{
   switch (true) {
-    case (altText > 100 && altText <= 140):
+    case (altCount > 100 && altCount <= 140):
       count.style.color = 'gold';
       break;
-    case (altText > 140 && altText <= maxChar):
+    case (altCount > 140 && altCount <= maxChar):
       count.style.color = 'red';
       break;
     default:
@@ -28,15 +34,23 @@ let countColor = (altText) =>{
   }
 } 
 
-let punctCheck = keyName => {
-  let found = false;
+let punctCheck = (text) => {
+  let punctCount = 0;
   for(let i= 0; i < punctuation.length; i++){
-    if(punctuation[i] == keyName){
-      found = true;
+    for(let j = 0; j < text.length; j++){
+      if(punctuation[i] == text[j]){
+        return(true);
+      }
     }
   }
-  return (found);
-  
+  return (false);
 }
 
 document.addEventListener('keyup', charCount);
+
+/*
+             ,,,                                     
+            (0 0)                                   
+      ---ooO-(_)-Ooo---
+      Kaylin was here.
+*/
