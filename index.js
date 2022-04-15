@@ -16,6 +16,7 @@ let charCount = e => {
   let altCount = document.getElementById('altText').value.length;
   let altChar = document.getElementById('altText').value;
   punctCheck(altChar);
+  countColor(altCount);
   count.innerHTML = altCount;
   if(colorCheck(altChar)){
     color.innerHTML = "Yes";
@@ -55,13 +56,9 @@ let punctCheck = (text) => {
 }
 
 function colorCheck(text) {
-  console.log(text);
   let colorCount = 0;
   for(let i= 0; i < colorList.length; i++){
-
     let index = text.search(colorList[i]);
-    console.log(colorList[i]);
-    console.log(found);
     if(index != -1){
       return true;
     }
