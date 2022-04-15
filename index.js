@@ -2,7 +2,12 @@
 const maxChar = 160;
 const count = document.getElementById('count');
 const punct = document.getElementById('punct');
+const color = document.getElementById('color');
 const punctuation =[',','.',';',':','-','!','"',"'",'(',')','?'];
+const colorList = ['aqua','beige','black','blue','brown','dark blue', 'dark gray', 
+              'dark green', 'dark purple', 'dark red', 'dark orange', 'gold',
+              'gray', 'green', 'light gray', 'light green', 'light blue', 
+              'maroon', 'orange', 'pink', 'red','white','yellow']
 let found = false;
 //let punctCount = 0;
 
@@ -11,14 +16,17 @@ let charCount = e => {
   let altCount = document.getElementById('altText').value.length;
   let altChar = document.getElementById('altText').value;
   punctCheck(altChar);
-  countColor(altCount);
   count.innerHTML = altCount;
+  if(colorCheck(altChar)){
+    color.innerHTML = "Yes";
+  }else{
+    color.innerHTML = "No";
+  }
   if(punctCheck(altChar)){
     punct.innerHTML = "Yes";
   }else{
     punct.innerHTML = "No";
-  }
-  
+  }  
 }
 
 let countColor = (altCount) =>{
@@ -41,6 +49,21 @@ let punctCheck = (text) => {
       if(punctuation[i] == text[j]){
         return(true);
       }
+    }
+  }
+  return (false);
+}
+
+function colorCheck(text) {
+  console.log(text);
+  let colorCount = 0;
+  for(let i= 0; i < colorList.length; i++){
+
+    let index = text.search(colorList[i]);
+    console.log(colorList[i]);
+    console.log(found);
+    if(index != -1){
+      return true;
     }
   }
   return (false);
