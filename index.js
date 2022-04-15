@@ -5,12 +5,22 @@ const count = document.getElementById('count');
 let charCount = e => {
   const keyName = e.key;
   let altText = document.getElementById('altText').value.length;
+  countColor(altText);
   count.innerHTML = altText;
   
 }
 
-document.addEventListener('keyup', charCount);
+let countColor = (altText) =>{
+  switch (true) {
+    case (altText > 100 && altText <= 140):
+      count.style.color = 'gold';
+      break;
+    case (altText > 140 && altText <= maxChar):
+      count.style.color = 'red';
+      break;
+    default:
+      count.style.color = 'green';
+  }
+} 
 
-//detect length of pasted text
-//delete text as user deletes characters
-//don't allow enter key
+document.addEventListener('keyup', charCount);
