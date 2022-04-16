@@ -12,6 +12,8 @@ const shapes = ['circle', 'triangle', 'rectangle', 'oval', 'square', 'pentagon',
 const pronouns = ['he', 'him', 'his', 'she', 'her', 'hers', 'man', 'woman', 'lady', 'gentilmen', 'guy', 'gal', 'man', 'woman'];
 const emotions = ['happy', 'sad', 'angrey', 'solumn', 'serious'];
 const thirdPerson = ['it', 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves'];
+const firstPerson = ['I ',' me ','Me ',' my ','My ',' mine ', 'Mine ',' we ', 'We ' ,' us ', 'Us ',' our ', 'Our ',' ours ', 'Ours '];
+const secondPerson = [' you ',' your ',' yours ',' you\'re '];
 const positions = ['left', 'right', 'top', 'bottom', 'around', 'under', 'below', 
                   'behind', 'beside', 'between', 'after', 'across', 'inside', 
                   'near', 'on', 'outside', 'forward', 'backward', 'side', 'top'];
@@ -32,15 +34,16 @@ let charCount = e => {
   punctCheck(altChar);
   countColor(altCount);
   count.innerHTML = altCount + "/" + maxChar;
-  if(colorCheck(altChar)){
-    color.innerHTML = "Yes";
+  display(personCheck(altChar, firstPerson), person);
+  display(colorCheck(altChar), color);
+  display(punctCheck(altChar), punct);
+}
+
+function display(func,id){
+  if(func){
+    id.innerHTML = "Yes";
   }else{
-    color.innerHTML = "No";
-  }
-  if(punctCheck(altChar)){
-    punct.innerHTML = "Yes";
-  }else{
-    punct.innerHTML = "No";
+    id.innerHTML = "No";
   }  
 }
 
@@ -80,6 +83,16 @@ function colorCheck(text) {
   return (false);
 }
 
+function personCheck(text, wordList){
+  for(let i= 0; i < wordList.length; i++){
+    let index = text.search(wordList[i]);
+    if(index != -1){
+      return true;
+    }
+  }
+  return (false);
+}
+
 document.addEventListener('keyup', charCount);
 
 /*
@@ -103,6 +116,8 @@ document.addEventListener('keyup', charCount);
 //describe if someone is in a wheel chair or using crutches.
 //use metaphors "shaped like a___"
 //if the caption or description pared with the image describes the image perfectly, don't include alt text.
+
+//BUGS
 
 
 
