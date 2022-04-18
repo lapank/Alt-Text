@@ -9,11 +9,11 @@ const colorList = ['red', 'orange', 'yellow', 'green', 'blue','purple',
 const planeParts = ['wing', 'body', 'tail', 'wheels', 'engine', 'nose', 'cockpit'];
 const shapes = ['circle', 'triangle', 'rectangle', 'oval', 'square', 'pentagon', 
                   'hexagon', 'octagon', 'cube', 'cone', 'cylinder', 'sphere'];
-const pronouns = ['he', 'him', 'his', 'she', 'her', 'hers', 'man', 'woman', 'lady', 'gentilmen', 'guy', 'gal', 'man', 'woman'];
+const pronouns = [' he ', ' him ', ' his ', ' she ', ' her ', ' hers ', ' man ', ' woman ', ' lady ', ' gentlemen ', 'guy', 'gal', 'man', 'woman'];
 const emotions = ['happy', 'sad', 'angrey', 'solumn', 'serious'];
 const thirdPerson = ['it', 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves'];
 const firstPerson = ['I ',' me ','Me ',' my ','My ',' mine ', 'Mine ',' we ', 'We ' ,' us ', 'Us ',' our ', 'Our ',' ours ', 'Ours '];
-const secondPerson = [' you ',' your ',' yours ',' you\'re '];
+const secondPerson = ['You ',' you ','Your ',' your ','Yours ',' yours ','You\'re ',' you\'re '];
 const positions = ['left', 'right', 'top', 'bottom', 'around', 'under', 'below', 
                   'behind', 'beside', 'between', 'after', 'across', 'inside', 
                   'near', 'on', 'outside', 'forward', 'backward', 'side', 'top'];
@@ -31,22 +31,31 @@ let charCount = e => {
   const keyName = e.key;
   let altCount = document.getElementById('altText').value.length;
   let altChar = document.getElementById('altText').value;
-  punctCheck(altChar);
+  //punctCheck(altChar);
   countColor(altCount);
   count.innerHTML = altCount + "/" + maxChar;
-  display(personCheck(altChar, firstPerson), person);
-  display(colorCheck(altChar), color);
-  display(punctCheck(altChar), punct);
+  display(personCheck(altChar, firstPerson), firstPer);
+  display(personCheck(altChar, secondPerson), secondPer);
+  //display(personCheck(altChar, thirdPerson), thirdPerson);
+  console.log(compareText(altChar, thirdPerson),thirdPer);
+  //display(colorCheck(altChar), color);
+  display(compareText(altChar, colorList),color);
+  //display(punctCheck(altChar), punct);
+  display(compareText(altChar, punctuation),punct);
+  //display(genderCheck(altChar), gender);
+  display(compareText(altChar, pronouns),gender);
 }
 
 function display(func,id){
   if(func){
+    console.log('yes entered');
     id.innerHTML = "Yes";
+    console.log(id.innerHTML);
   }else{
+    console.log('no entered');
     id.innerHTML = "No";
   }  
 }
-
 let countColor = (altCount) =>{
   switch (true) {
     case (altCount > 100 && altCount <= 125):
@@ -59,7 +68,7 @@ let countColor = (altCount) =>{
       count.style.color = 'green';
   }
 } 
-
+/*
 let punctCheck = (text) => {
   let punctCount = 0;
   for(let i= 0; i < punctuation.length; i++){
@@ -71,9 +80,11 @@ let punctCheck = (text) => {
   }
   return (false);
 }
+*/
 
+/*
 function colorCheck(text) {
-  let colorCount = 0;
+  //let colorCount = 0;
   for(let i= 0; i < colorList.length; i++){
     let index = text.search(colorList[i]);
     if(index != -1){
@@ -82,10 +93,35 @@ function colorCheck(text) {
   }
   return (false);
 }
+*/
 
 function personCheck(text, wordList){
   for(let i= 0; i < wordList.length; i++){
     let index = text.search(wordList[i]);
+    //console.log(wordList[i]);
+    //console.log(index);
+    if(index != -1){
+      return true;
+    }
+  }
+  return (false);
+}
+
+/*
+function genderCheck(text){
+  for(let i= 0; i < pronouns.length; i++){
+    let index = text.search(pronouns[i]);
+    if(index != -1){
+      return true;
+    }
+  }
+  return (false);
+}
+*/
+
+function compareText(text, wordList){
+  for(let i= 0; i < wordList.length; i++){
+   let index = text.indexOf(wordList[i]);
     if(index != -1){
       return true;
     }
