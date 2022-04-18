@@ -31,28 +31,21 @@ let charCount = e => {
   const keyName = e.key;
   let altCount = document.getElementById('altText').value.length;
   let altChar = document.getElementById('altText').value;
-  //punctCheck(altChar);
+  
   countColor(altCount);
   count.innerHTML = altCount + "/" + maxChar;
-  display(personCheck(altChar, firstPerson), firstPer);
-  display(personCheck(altChar, secondPerson), secondPer);
-  //display(personCheck(altChar, thirdPerson), thirdPerson);
-  console.log(compareText(altChar, thirdPerson),thirdPer);
-  //display(colorCheck(altChar), color);
+  display(compareText(altChar, firstPerson),firstPer);
+  display(compareText(altChar, secondPerson),secondPer);
+  display(compareText(altChar, thirdPerson),thirdPer);
   display(compareText(altChar, colorList),color);
-  //display(punctCheck(altChar), punct);
   display(compareText(altChar, punctuation),punct);
-  //display(genderCheck(altChar), gender);
   display(compareText(altChar, pronouns),gender);
 }
 
 function display(func,id){
   if(func){
-    console.log('yes entered');
     id.innerHTML = "Yes";
-    console.log(id.innerHTML);
   }else{
-    console.log('no entered');
     id.innerHTML = "No";
   }  
 }
@@ -68,56 +61,6 @@ let countColor = (altCount) =>{
       count.style.color = 'green';
   }
 } 
-/*
-let punctCheck = (text) => {
-  let punctCount = 0;
-  for(let i= 0; i < punctuation.length; i++){
-    for(let j = 0; j < text.length; j++){
-      if(punctuation[i] == text[j]){
-        return(true);
-      }
-    }
-  }
-  return (false);
-}
-*/
-
-/*
-function colorCheck(text) {
-  //let colorCount = 0;
-  for(let i= 0; i < colorList.length; i++){
-    let index = text.search(colorList[i]);
-    if(index != -1){
-      return true;
-    }
-  }
-  return (false);
-}
-*/
-
-function personCheck(text, wordList){
-  for(let i= 0; i < wordList.length; i++){
-    let index = text.search(wordList[i]);
-    //console.log(wordList[i]);
-    //console.log(index);
-    if(index != -1){
-      return true;
-    }
-  }
-  return (false);
-}
-
-/*
-function genderCheck(text){
-  for(let i= 0; i < pronouns.length; i++){
-    let index = text.search(pronouns[i]);
-    if(index != -1){
-      return true;
-    }
-  }
-  return (false);
-}
-*/
 
 function compareText(text, wordList){
   for(let i= 0; i < wordList.length; i++){
