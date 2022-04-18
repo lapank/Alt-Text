@@ -24,8 +24,21 @@ const condition = ['rips', 'tears', 'flaking', 'marks', 'weathered', 'shiny'];
 const age = ['young adult', 'adult', 'child', 'infant'];
 const noNoWords = ['elderly', 'image of', 'picture of', ' I ', "we", 'our', 'my', 'me'];
 
+let click = false;
+
+
 let found = false;
 //let punctCount = 0;
+
+let textClick = e => {
+  console.log(click);
+  if (click == false){
+    console.log("Event Fired");
+    document.getElementById('altText').value = '';
+    click = true;
+  }
+  else{return}
+}
 
 let charCount = e => {
   const keyName = e.key;
@@ -73,6 +86,7 @@ function compareText(text, wordList){
 }
 
 document.addEventListener('keyup', charCount);
+document.addEventListener('click', textClick);
 
 /*
              ,,,                                     
