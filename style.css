@@ -8,15 +8,22 @@
 }
 
 body{
-	background-color: #EDEDED;
 	font-size: 1em;
 	font-weight: light;
-	
+	background-color: white;
+}
+
+.pageContainer{
+  margin: 1em;
+  padding: 0 2em;
+  background-color: #EDEDED;
+  border-radius: 10px;
 }
 
 h1{
 	font-size: 3.5em;
 	padding-top: 1em;
+  padding-bottom: .5em;
 	font-weight: 300;
 
 }
@@ -68,7 +75,7 @@ textarea:focus {
 }
 
 .panel {
-  padding: 0 18px;
+  padding: 0 1em;
   background-color: white;
   max-height: 0;
   overflow: hidden;
@@ -86,4 +93,8 @@ textarea:focus {
 
 .hide{
 	visibility: hidden;
+}
+
+#count{
+  text-align: right;
 }

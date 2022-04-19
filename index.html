@@ -8,58 +8,83 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <form action="/action_page.php" autocomplete="off"rel="noopener">
-      <h1>Alt Text Validator</h1>
-      <p>Suggested Format: Subject, action, context.  A _____ does something from somewhere.</p>
-      <h3>Character Count: </h3><h3 id="count">0/150</h3>
-      <label for="fname">Enter Alt Text:</label><br>
-      <textarea type="text" id="altText" rows="4" cols="50" maxlength="150" spellcheck="true">Enter alt text here...</textarea>
-    </form>
+    <div class="pageContainer">
+      <form action="/action_page.php" autocomplete="off"rel="noopener">
+        <h1>Alt Text Validator</h1>
+        <p>Suggested Format: Subject, action, context.  A _____ does something from somewhere.</p>
+        
+        <label for="fname">Enter Alt Text:</label>
+        <span id="count">0/150</span><span> Characters</span>
+        <textarea type="text" id="altText" rows="4" cols="50" maxlength="150" spellcheck="true">Enter alt text here...</textarea>
+      </form>
 
-    <button class="accordion"><span>Complete Sentences</span><span class="hide flag" id='punct'>Flag</span></button> 
+      <button class="accordion"><span>Complete Sentences</span><span class="hide flag" id='punct'>Flag</span></button> 
 
-    <div class="panel">
-      <p>Proper punctuation and complete sentences must be included in alt text.</p>
-    </div>
+      <div class="panel">
+        <p>Proper punctuation and complete sentences must be included in alt text.</p>
+      </div>
 
-     <button class="accordion"><span>Color</span><span class="hide flag" id='color'>Flag</span></button> 
+       <button class="accordion"><span>Standard Colors</span><span class="hide flag" id='color'>Flag</span></button> 
 
-    <div class="panel">
-      <p>Colors are helpful to include in alt text.  If colors are included it should be one of these base colors, unless a more specific color is important to understanding the image.</p>
-      <div class="color"style="background-color: black;">Black</div>
-      <div class="color"style="background-color: blue;">Blue</div>
-      <div class="color"style="background-color: brown;">Brown</div>
-      <div class="color"style="background-color: gold;">Gold</div>
-      <div class="color"style="background-color: silver;">Silver</div>
-      <div class="color"style="background-color: saddlebrown;">Bronze</div>
-      <div class="color"style="background-color: green;">Green</div>
-      <div class="color"style="background-color: orange;">Orange</div>
-      <div class="color"style="background-color: pink;">Pink</div>
-      <div class="color"style="background-color: purple;">Purple</div>
-      <div class="color"style="background-color: red;">Red</div>
-      <div class="color"style="background-color: white;">White</div>
-      <div class="color"style="background-color: yellow;">Yellow</div>
-    </div>
+      <div class="panel">
+        <p>Colors are helpful to include in alt text.  If colors are included it should be one of these base colors, unless a more specific color is important to understanding the image.</p>
+        <div class="color"style="background-color: black;">Black</div>
+        <div class="color"style="background-color: blue;">Blue</div>
+        <div class="color"style="background-color: brown;">Brown</div>
+        <div class="color"style="background-color: gold;">Gold</div>
+        <div class="color"style="background-color: silver;">Silver</div>
+        <div class="color"style="background-color: saddlebrown;">Bronze</div>
+        <div class="color"style="background-color: green;">Green</div>
+        <div class="color"style="background-color: orange;">Orange</div>
+        <div class="color"style="background-color: pink;">Pink</div>
+        <div class="color"style="background-color: purple;">Purple</div>
+        <div class="color"style="background-color: red;">Red</div>
+        <div class="color"style="background-color: white;">White</div>
+        <div class="color"style="background-color: yellow;">Yellow</div>
+      </div>
 
-    <button class="accordion"><span>Tense</span><span class="hide flag" id='tense'>Flag</span></button> 
+      <button class="accordion"><span>Present Tense</span><span class="hide flag" id='tense'>Flag</span></button> 
 
-    <div class="panel">
-      <p>Make sure to use present tense active verbs.</p>
-      <p>Example: live, sit, stay, try, carry, miss, catch, fix, go, do, lives, sits, stays, tries, carries, misses, catches, fixes, goes, does</p>
-    </div>
+      <div class="panel">
+        <p>Make sure to use present tense active verbs.</p>
+        <p>Example: live, sit, stay, try, carry, miss, catch, fix, go, do, lives, sits, stays, tries, carries, misses, catches, fixes, goes, does</p>
+      </div>
 
-    <button class="accordion"><span>Perspective</span><span class="hide flag" id='perspect'>Flag</span></button> 
+      <button class="accordion"><span>3rd Person Perspective</span><span class="hide flag" id='perspect'>Flag</span></button> 
 
-    <div class="panel">
-      <p>Use third person.  First and Second preson should only be used if writing text that appears in the image or using the embodiment technique to instruct user to do something or imagine something.</p>
-      <p>Example: </p>
-    </div>
+      <div class="panel">
+        <p>Use third person.  First and Second preson should only be used if writing text that appears in the image or using the embodiment technique to instruct user to do something or imagine something.</p>
+        <p>Example: </p>
+      </div>
 
-    <button class="accordion"><span>Gender</span><span class="hide flag" id='gender'>Flag</span></button> 
+      <button class="accordion"><span>Gender Neutral</span><span class="hide flag" id='gender'>Flag</span></button> 
 
-    <div class="panel">
-      <p>Are you sure this gendered language matches how the individuals identify.</p>
-      <p>Example: </p>
+      <div class="panel">
+        <p>Are you sure this gendered language matches how the individuals identify.</p>
+        <p>Example: </p>
+      </div>
+
+      <button class="accordion"><span>Original Medium</span><span class="hide flag" id=''>Flag</span></button> 
+
+      <div class="panel">
+        <p>Are you sure this gendered language matches how the individuals identify.</p>
+        <p>Example: </p>
+      </div>
+
+      <button class="accordion"><span>Comparative Sizes</span><span class="hide flag" id=''>Flag</span></button> 
+
+      <div class="panel">
+        <p>Are you sure this gendered language matches how the individuals identify.</p>
+        <p>Example: </p>
+      </div>
+
+      <button class="accordion"><span>Comparative Position</span><span class="hide flag" id=''>Flag</span></button> 
+
+      <div class="panel">
+        <p>Are you sure this gendered language matches how the individuals identify.</p>
+        <p>Example: </p>
+      </div>
+
     </div>
 	<script src="index.js"></script>
   </body>

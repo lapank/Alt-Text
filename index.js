@@ -62,17 +62,17 @@ let charCount = e => {
 function displaySuccessMatch(func,id,warning){
   id.classList.remove('hide');
   if(func){
-    id.innerHTML = "Success";
+    id.innerHTML = "Pass";
     id.style.backgroundColor = '#28A745';
     id.style.color = '#FFF';
   }else{
     if(warning){
-      id.innerHTML = "Warning";
+      id.innerHTML = "Review";
       id.style.backgroundColor = '#FFC107';
       id.style.color = '#343A40';
     }
     else{
-      id.innerHTML = "Error";
+      id.innerHTML = "Fail";
       id.style.backgroundColor = '#DC3545';
       id.style.color = '#FFF';
     }
@@ -83,12 +83,12 @@ function displaySuccessMatch(func,id,warning){
 function displayFailMatch(func,id,warning){
   id.classList.remove('hide');
   if(func){
-    id.innerHTML = "Error";
+    id.innerHTML = "Fail";
       id.style.backgroundColor = '#DC3545';
       id.style.color = '#FFF';
     
   }else{
-      id.innerHTML = "Warning";
+      id.innerHTML = "Review";
       id.style.backgroundColor = '#FFC107';
       id.style.color = '#343A40';
     }
@@ -97,12 +97,12 @@ function displayFailMatch(func,id,warning){
 function displayWarningMatch(func,id,warning){
   id.classList.remove('hide');
   if(func){
-    id.innerHTML = "Warning";
+    id.innerHTML = "Review";
     id.style.backgroundColor = '#FFC107';
     id.style.color = '#343A40';
     
   }else{
-    id.innerHTML = "Success";
+    id.innerHTML = "Pass";
     id.style.backgroundColor = '#28A745';
     id.style.color = '#FFF';
   }
@@ -146,6 +146,7 @@ for (i = 0; i < acc.length; i++) {
       panel.style.maxHeight = null;
     } else {
       panel.style.maxHeight = panel.scrollHeight + "px";
+      panel.style.border = '#DFDFDF solid';
     } 
   });
 }
@@ -177,7 +178,7 @@ for (i = 0; i < acc.length; i++) {
 
 //BUGS
 //complete sentences add check for capital leters.
-//transform arrays to include spaces and capital letters 4512
+//transform arrays to include spaces and capital letters 
 
 
 
