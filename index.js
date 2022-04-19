@@ -52,7 +52,7 @@ let charCount = e => {
   display(compareText(altChar, thirdPerson),thirdPer, false);
   display(compareText(altChar, colorList),color, true);
   display(compareText(altChar, punctuation),punct, false);
-
+  display(false,tense,true);
   display(compareText(altChar, pronouns),gender);
 }
 
