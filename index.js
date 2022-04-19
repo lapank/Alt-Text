@@ -56,7 +56,7 @@ let charCount = e => {
   displaySuccessMatch(compareText(altChar, colorList),color, true);
   displaySuccessMatch(compareText(altChar, punctuation),punct, false);
   displayFailMatch(compareText(altChar,tenseList),tense,true);
-  displaySuccessMatch(compareText(altChar, pronouns),gender);
+  displayWarningMatch(compareText(altChar, pronouns),gender);
 }
 
 function displaySuccessMatch(func,id,warning){
