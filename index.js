@@ -25,7 +25,7 @@ const age = ['young adult', 'adult', 'child', 'infant'];
 const noNoWords = ['elderly', 'image of', 'picture of', ' I ', "we", 'our', 'my', 'me'];
 
 let click = false;
-
+successPunct = document.getElementById('sucpunct');
 
 let found = false;
 //let punctCount = 0;
@@ -52,14 +52,18 @@ let charCount = e => {
   display(compareText(altChar, thirdPerson),thirdPer);
   display(compareText(altChar, colorList),color);
   display(compareText(altChar, punctuation),punct);
+
   display(compareText(altChar, pronouns),gender);
 }
 
 function display(func,id){
+  id.classList.remove('hide');
   if(func){
-    id.innerHTML = "Yes";
+    id.innerHTML = "Success";
+    id.style.backgroundColor = '#28A745';
   }else{
-    id.innerHTML = "No";
+    id.innerHTML = "Error";
+    id.style.backgroundColor = '#DC3545';
   }  
 }
 let countColor = (altCount) =>{
@@ -87,6 +91,25 @@ function compareText(text, wordList){
 
 document.addEventListener('keyup', charCount);
 document.addEventListener('click', textClick);
+
+//accordion
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+
+/*flags*/
+
 
 /*
              ,,,                                     

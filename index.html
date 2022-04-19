@@ -11,11 +11,17 @@
     <form action="/action_page.php" autocomplete="off"rel="noopener">
       <h1>Alt Text Validator</h1>
       <h3>Character Count: </h3><h3 id="count">0/125</h3>
-      <label for="fname">Enter Alt Text:</label>
+      <label for="fname">Enter Alt Text:</label><br>
       <textarea type="text" id="altText" rows="4" cols="50" maxlength="150" spellcheck="true">Enter alt text here...</textarea>
     </form>
+
+    <button class="accordion"><span>Punctuation</span><span class="hide flag" id='punct'>Flag</span></button> 
+
+    <div class="panel">
+      <p>Proper punctuation and complete sentences must be included in alt text.</p>
+    </div>
     
-    <h3>Punctuation Used: </h3><h3 id="punct">No</h3>
+    <!--<h3>Punctuation Used: </h3><h3 id="punct">No</h3>-->
     <h3>Colors Used: </h3><h3 id="color">No</h3>
     <h3>If relevant, please consider using one of the following color words.</h3>
     <div class="color"style="background-color: black;">Black</div>
