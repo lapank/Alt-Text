@@ -3,7 +3,7 @@ const maxChar = 150;
 const count = document.getElementById('count');
 const punct = document.getElementById('punct');
 const color = document.getElementById('color');
-const punctuation =[',','.',';',':','-','!','"',"'",'(',')','?'];
+const punctuation =['.','!','?'];
 const colorList = ['red', 'orange', 'yellow', 'green', 'blue','purple', 
                   'pink', 'brown', 'gold', 'bronze', 'silver', 'black', 'white'];
 const planeParts = ['wing', 'body', 'tail', 'wheels', 'engine', 'nose', 'flightdeck'];
@@ -13,7 +13,7 @@ const pronouns = [' he ', ' him ', ' his ', ' she ', ' her ', ' hers ', ' man ',
 const emotions = ['happy', 'sad', 'angrey', 'solumn', 'serious'];
 const thirdPerson = ['it', 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves'];
 const firstPerson = ['I ',' me ','Me ',' my ','My ',' mine ', 'Mine ',' we ', 'We ' ,' us ', 'Us ',' our ', 'Our ',' ours ', 'Ours '];
-const secondPerson = ['You ',' you ','Your ',' your ','Yours ',' yours ','You\'re ',' you\'re '];
+const secondPerson = ['You ','yall','ya\'ll',' you ','Your ',' your ','Yours ',' yours ','You\'re ',' you\'re '];
 const positions = ['left', 'right', 'top', 'bottom', 'around', 'under', 'below', 
                   'behind', 'beside', 'between', 'after', 'across', 'inside', 
                   'near', 'on', 'outside', 'forward', 'backward', 'side', 'top'];
@@ -23,6 +23,7 @@ const medium = ['radiograph', '3D model', 'drawing, painting', '35mm slide', 'pr
 const condition = ['rips', 'tears', 'flaking', 'marks', 'weathered', 'shiny'];
 const age = ['young adult', 'adult', 'child', 'infant'];
 const noNoWords = ['elderly', 'image of', 'picture of', ' I ', "we", 'our', 'my', 'me']; /* poster text*/
+const tenseList = ['ing', 'been', 'will', 'was', 'had'];
 
 let click = false;
 successPunct = document.getElementById('sucpunct');
@@ -47,16 +48,18 @@ let charCount = e => {
   
   countColor(altCount);
   count.innerHTML = altCount + "/" + maxChar;
-  display(compareText(altChar, firstPerson),firstPer,false);
-  display(compareText(altChar, secondPerson),secondPer, true);
-  display(compareText(altChar, thirdPerson),thirdPer, false);
-  display(compareText(altChar, colorList),color, true);
-  display(compareText(altChar, punctuation),punct, false);
-  display(false,tense,true);
-  display(compareText(altChar, pronouns),gender);
+  if(compareText(altChar, firstPerson) || compareText(altChar, secondPerson)){
+    displayWarningMatch(true, perspect, false);
+  }else{
+    displayWarningMatch(false, perspect, false);
+  }
+  displaySuccessMatch(compareText(altChar, colorList),color, true);
+  displaySuccessMatch(compareText(altChar, punctuation),punct, false);
+  displayFailMatch(compareText(altChar,tenseList),tense,true);
+  displaySuccessMatch(compareText(altChar, pronouns),gender);
 }
 
-function display(func,id,warning){
+function displaySuccessMatch(func,id,warning){
   id.classList.remove('hide');
   if(func){
     id.innerHTML = "Success";
@@ -76,6 +79,34 @@ function display(func,id,warning){
     
   }  
 }
+
+function displayFailMatch(func,id,warning){
+  id.classList.remove('hide');
+  if(func){
+    id.innerHTML = "Error";
+      id.style.backgroundColor = '#DC3545';
+      id.style.color = '#FFF';
+    
+  }else{
+      id.innerHTML = "Warning";
+      id.style.backgroundColor = '#FFC107';
+      id.style.color = '#343A40';
+    }
+  } 
+
+function displayWarningMatch(func,id,warning){
+  id.classList.remove('hide');
+  if(func){
+    id.innerHTML = "Warning";
+    id.style.backgroundColor = '#FFC107';
+    id.style.color = '#343A40';
+    
+  }else{
+    id.innerHTML = "Success";
+    id.style.backgroundColor = '#28A745';
+    id.style.color = '#FFF';
+  }
+} 
 
 let countColor = (altCount) =>{
   switch (true) {
@@ -145,6 +176,9 @@ for (i = 0; i < acc.length; i++) {
 //if the caption or description pared with the image describes the image perfectly, don't include alt text.
 
 //BUGS
+//complete sentences add check for capital leters.
+//transform arrays to include spaces and capital letters 4512
+
 
 
 
