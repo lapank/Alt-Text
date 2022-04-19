@@ -6,7 +6,7 @@ const color = document.getElementById('color');
 const punctuation =[',','.',';',':','-','!','"',"'",'(',')','?'];
 const colorList = ['red', 'orange', 'yellow', 'green', 'blue','purple', 
                   'pink', 'brown', 'gold', 'bronze', 'silver', 'black', 'white'];
-const planeParts = ['wing', 'body', 'tail', 'wheels', 'engine', 'nose', 'cockpit'];
+const planeParts = ['wing', 'body', 'tail', 'wheels', 'engine', 'nose', 'flightdeck'];
 const shapes = ['circle', 'triangle', 'rectangle', 'oval', 'square', 'pentagon', 
                   'hexagon', 'octagon', 'cube', 'cone', 'cylinder', 'sphere'];
 const pronouns = [' he ', ' him ', ' his ', ' she ', ' her ', ' hers ', ' man ', ' woman ', ' lady ', ' gentlemen ', 'guy', 'gal', 'man', 'woman'];
@@ -22,7 +22,7 @@ const size = ['big', 'small', 'tall', 'wide', 'short', 'large', 'heavy',
 const medium = ['radiograph', '3D model', 'drawing, painting', '35mm slide', 'print', 'scientific illustration'];
 const condition = ['rips', 'tears', 'flaking', 'marks', 'weathered', 'shiny'];
 const age = ['young adult', 'adult', 'child', 'infant'];
-const noNoWords = ['elderly', 'image of', 'picture of', ' I ', "we", 'our', 'my', 'me'];
+const noNoWords = ['elderly', 'image of', 'picture of', ' I ', "we", 'our', 'my', 'me']; /* poster text*/
 
 let click = false;
 successPunct = document.getElementById('sucpunct');
@@ -47,29 +47,40 @@ let charCount = e => {
   
   countColor(altCount);
   count.innerHTML = altCount + "/" + maxChar;
-  display(compareText(altChar, firstPerson),firstPer);
-  display(compareText(altChar, secondPerson),secondPer);
-  display(compareText(altChar, thirdPerson),thirdPer);
-  display(compareText(altChar, colorList),color);
-  display(compareText(altChar, punctuation),punct);
+  display(compareText(altChar, firstPerson),firstPer,false);
+  display(compareText(altChar, secondPerson),secondPer, true);
+  display(compareText(altChar, thirdPerson),thirdPer, false);
+  display(compareText(altChar, colorList),color, true);
+  display(compareText(altChar, punctuation),punct, false);
 
   display(compareText(altChar, pronouns),gender);
 }
 
-function display(func,id){
+function display(func,id,warning){
   id.classList.remove('hide');
   if(func){
     id.innerHTML = "Success";
     id.style.backgroundColor = '#28A745';
+    id.style.color = '#FFF';
   }else{
-    id.innerHTML = "Error";
-    id.style.backgroundColor = '#DC3545';
+    if(warning){
+      id.innerHTML = "Warning";
+      id.style.backgroundColor = '#FFC107';
+      id.style.color = '#343A40';
+    }
+    else{
+      id.innerHTML = "Error";
+      id.style.backgroundColor = '#DC3545';
+      id.style.color = '#FFF';
+    }
+    
   }  
 }
+
 let countColor = (altCount) =>{
   switch (true) {
     case (altCount > 100 && altCount <= 125):
-      count.style.color = 'gold';
+      count.style.color = 'orange';
       break;
     case (altCount > 125 && altCount <= maxChar):
       count.style.color = 'red';

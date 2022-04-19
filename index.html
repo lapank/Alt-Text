@@ -10,7 +10,7 @@
   <body>
     <form action="/action_page.php" autocomplete="off"rel="noopener">
       <h1>Alt Text Validator</h1>
-      <h3>Character Count: </h3><h3 id="count">0/125</h3>
+      <h3>Character Count: </h3><h3 id="count">0/150</h3>
       <label for="fname">Enter Alt Text:</label><br>
       <textarea type="text" id="altText" rows="4" cols="50" maxlength="150" spellcheck="true">Enter alt text here...</textarea>
     </form>
@@ -20,23 +20,30 @@
     <div class="panel">
       <p>Proper punctuation and complete sentences must be included in alt text.</p>
     </div>
+
+     <button class="accordion"><span>Color</span><span class="hide flag" id='color'>Flag</span></button> 
+
+    <div class="panel">
+      <p>Colors are helpful to include in alt text.  If colors are included it should be one of these base colors, unless a more specific color is important to understanding the image.</p>
+      <div class="color"style="background-color: black;">Black</div>
+      <div class="color"style="background-color: blue;">Blue</div>
+      <div class="color"style="background-color: brown;">Brown</div>
+      <div class="color"style="background-color: gold;">Gold</div>
+      <div class="color"style="background-color: silver;">Silver</div>
+      <div class="color"style="background-color: saddlebrown;">Bronze</div>
+      <div class="color"style="background-color: green;">Green</div>
+      <div class="color"style="background-color: orange;">Orange</div>
+      <div class="color"style="background-color: pink;">Pink</div>
+      <div class="color"style="background-color: purple;">Purple</div>
+      <div class="color"style="background-color: red;">Red</div>
+      <div class="color"style="background-color: white;">White</div>
+      <div class="color"style="background-color: yellow;">Yellow</div>
+    </div>
     
     <!--<h3>Punctuation Used: </h3><h3 id="punct">No</h3>-->
-    <h3>Colors Used: </h3><h3 id="color">No</h3>
-    <h3>If relevant, please consider using one of the following color words.</h3>
-    <div class="color"style="background-color: black;">Black</div>
-    <div class="color"style="background-color: blue;">Blue</div>
-    <div class="color"style="background-color: brown;">Brown</div>
-    <div class="color"style="background-color: gold;">Gold</div>
-    <div class="color"style="background-color: silver;">Silver</div>
-    <div class="color"style="background-color: saddlebrown;">Bronze</div>
-    <div class="color"style="background-color: green;">Green</div>
-    <div class="color"style="background-color: orange;">Orange</div>
-    <div class="color"style="background-color: pink;">Pink</div>
-    <div class="color"style="background-color: purple;">Purple</div>
-    <div class="color"style="background-color: red;">Red</div>
-    <div class="color"style="background-color: white;">White</div>
-    <div class="color"style="background-color: yellow;">Yellow</div>
+    <!--<h3>Colors Used: </h3><h3 id="color">No</h3>
+    <h3>If relevant, please consider using one of the following color words.</h3>-->
+    
     <h3>First Person Tense: </h3><h3 id="firstPer">Maybe</h3>
     <h3>Second Person Tense: </h3><h3 id="secondPer">No</h3>
     <h3>Third Person Tense: </h3><h3 id="thirdPer">No</h3>
