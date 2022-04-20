@@ -28,6 +28,11 @@ h1{
 
 }
 
+h2{
+  padding: 1em 0 .5em;
+  font-size: 1.5em;
+}
+
 textarea {
   width: 100%;
   padding: 12px 20px;
@@ -44,8 +49,11 @@ textarea:focus {
 }
 
 /*accordion*/
+.accordion span{
+  color: #007AFF;
+}
 .accordion {
-  background-color: #eee;
+  
   background-color: #F7F7F7;
   cursor: pointer;
   padding: 18px;
