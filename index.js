@@ -27,22 +27,40 @@ const tenseList = ['ing', 'been', 'will', 'was', 'had'];
 
 let click = false;
 successPunct = document.getElementById('sucpunct');
+let firstChar = true;
+let upperCaseFound = false;
 
 let found = false;
 //let punctCount = 0;
 
 let textClick = e => {
-  console.log(click);
   if (click == false){
-    console.log("Event Fired");
     document.getElementById('altText').value = '';
     click = true;
   }
   else{return}
 }
 
+
+//Complete sentence check
+//First letter is capitalized
+//Ending punctuation found
+/*
+testCompleteSentence(char){
+   if (firstChar == true){
+    if(char == char.toUpperCase()){
+      upperCaseFound = true;
+      console.log('uppercasefound');
+    }
+  }
+}
+*/
+
+
 let charCount = e => {
   const keyName = e.key;
+  //testCompleteSentence(keyName);
+ 
   let altCount = document.getElementById('altText').value.length;
   let altChar = document.getElementById('altText').value;
   
@@ -56,7 +74,7 @@ let charCount = e => {
   displaySuccessMatch(compareText(altChar, colorList),color, true);
   displaySuccessMatch(compareText(altChar, punctuation),punct, false);
   displayFailMatch(compareText(altChar,tenseList),tense,true);
-  displayWarningMatch(compareText(altChar, pronouns),gender);
+  displayWarningMatch(compareText(altChar, pronouns),gender,true);
 }
 
 function displaySuccessMatch(func,id,warning){
