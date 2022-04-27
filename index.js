@@ -45,25 +45,27 @@ let textClick = e => {
 //Complete sentence check
 //First letter is capitalized
 //Ending punctuation found
-/*
-testCompleteSentence(char){
+
+function testCompleteSentence(char, text){
    if (firstChar == true){
+    firstChar = false;
     if(char == char.toUpperCase()){
       upperCaseFound = true;
-      console.log('uppercasefound');
     }
+  }if (text == '') {
+    firstChar = true;
   }
 }
-*/
+
 
 
 let charCount = e => {
   const keyName = e.key;
-  //testCompleteSentence(keyName);
+  
  
   let altCount = document.getElementById('altText').value.length;
   let altChar = document.getElementById('altText').value;
-  
+  testCompleteSentence(keyName, altChar);
   countColor(altCount);
   count.innerHTML = altCount + "/" + maxChar;
   if(compareText(altChar, firstPerson) || compareText(altChar, secondPerson)){
