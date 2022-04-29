@@ -49,6 +49,74 @@ let textClick = e => {
 //If capital or punctuation is removed fail status
 //First letter after punctuation must be capital
 
+// Char is null
+// Returns true/false
+let charIsNull = char => {
+  if(char == null){
+    console.log('pass, first char is null');
+    return true;
+  }
+  else return false;
+};
+
+// Char is punctuation
+// Returns true/false
+function charIsPunct (char, puncList){
+  for(let i = 0; i < puncList.length; i++){
+    if(char == puncList[i]) {
+      console.log('pass, first char is punc.');
+      return true;
+    }
+  }
+  return false;
+}
+
+// Char is space
+// Returns true/false
+let charIsSpace = char => {
+  if(char == ' '){
+    console.log('pass, first char is space');
+    return true;
+  }else return false;
+};
+
+
+// Char is capital
+// Returns true/false
+let charIsCapital = char => {
+  if(char == char.toUpperCase()){
+    console.log('pass, first char is capital');
+    return true;
+  }else return false;
+};
+
+// First char check
+// Returns true/false
+function firstCharCheck (text, puncList){
+  if(!charIsNull(text[0])){
+    if(!charIsPunct(text[0],puncList)){
+      if(!charIsSpace(text[0])){
+        if(charIsCapital(text[0])){
+          return true;
+        }else{
+          return false;
+        }
+      }else{
+        return false;
+      }
+    }else{
+      return false;
+    }
+  }else{
+    return false;
+  }
+}
+
+//Last char check
+
+//Middle char check
+
+
 function testCompleteSentence(char, text, puncList){
   lastChar = text.length;
   let puncFound = false;
@@ -56,18 +124,9 @@ function testCompleteSentence(char, text, puncList){
   let capAftPunc = false;
 
   //Check first character is capital
-  if(text[0]!=null && text[0] != ' ' && text[0] == text[0].toUpperCase()){
-        upperCaseFound = true;
-        console.log('pass, first char is capital');
-      }else{
-        upperCaseFound = false;
-        console.log('fail, first char is not capital');
-      }
-
-    //Check if last character is punctuation.
+  firstCharCheck(text,puncList);
 
     
-
 //Check middle capitals and punctuations
   for (let i = 0; i < puncList.length; i++) {
     for(let j = 0; j < lastChar; j++){
