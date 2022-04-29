@@ -45,8 +45,89 @@ let textClick = e => {
 //Complete sentence check
 //First letter is capitalized
 //Ending punctuation found
+//First character cannot be punctuation
+//If capital or punctuation is removed fail status
+//First letter after punctuation must be capital
 
-function testCompleteSentence(char, text){
+function testCompleteSentence(char, text, puncList){
+  lastChar = text.length;
+  let puncFound = false;
+  let puncIndex = 1000;
+  let capAftPunc = false;
+  //Check through end punctuation list
+  for (let i = 0; i < puncList.length; i++) {
+    for(let j = 0; j < lastChar; j++){
+      if(text[j] == puncList[i]){
+        puncFound = true;
+        puncIndex = j;
+        console.log('punc found');
+      }
+      console.log(j + ' = j');
+      console.log(puncIndex+1 + ' ' +puncIndex+2 + ' '+puncIndex+3);
+      //check first letter in next 3 characters is uppercase
+      if (j <= puncIndex + 3 && j != puncIndex) {
+        //First char must be space
+        if(j == (puncIndex + 1) && text[j] != ' '){
+          console.log('fail, no space after end punc.');
+          //second char must be space or capital
+        }else if(j == (puncIndex + 2)) {
+          if(text[j] == ' '){
+            console.log('second char is space');
+          }
+          //A .toUpperCase on a space is a match
+          else if(text[j] != ' ' && text[j] == text[j].toUpperCase()){
+            console.log('second char is uppercase');
+            capAftPunc = true;
+          }else{
+            console.log('fail, second char is not a space or capital');
+          }
+          
+        }else if(j == (puncIndex + 3)) {
+          console.log(capAftPunc);
+          if(!capAftPunc){
+            console.log(capAftPunc);
+            if(text[j] == ' '){
+              console.log('Fail, no cap and 3rd space is space');
+            }else if(text[j] == text[j].toUpperCase()){
+              console.log('pass, first cap at 3rd space');
+            }else{
+              console.log('fail, no capital in first 3 spaces.');
+            }
+          }else if(capAftPunc){
+            console.log(capAftPunc);
+            if(text[j] == ' '){
+              console.log('Pass, uppercase occures before this space');
+            }else{
+              console.log('pass, a capital already exists');
+            }
+          }
+          
+          //A .toUpperCase on a space is a match so != space is required
+          else if(text[j] != ' ' && text[j] == text[j].toUpperCase()){
+            console.log('second char is uppercase');
+            capAftPunc = true;
+          }
+        }
+          
+        
+      }
+    }
+  }
+    
+    //First character is not punctuation, last character is punctuation.
+    /*if (puncList[i] != text[0] && puncList[i] == text[lastChar-1]) {
+      if(text[0] == text[0].toUpperCase()){
+        upperCaseFound = true;
+      }else{
+        upperCaseFound = false;
+      }
+    }else{
+      upperCaseFound = false;
+    }*/
+      
+  
+  
+  /*
    if (firstChar == true){
     firstChar = false;
     if(char == char.toUpperCase()){
@@ -54,7 +135,7 @@ function testCompleteSentence(char, text){
     }
   }if (text == '') {
     firstChar = true;
-  }
+  }*/
 }
 
 
@@ -65,7 +146,8 @@ let charCount = e => {
  
   let altCount = document.getElementById('altText').value.length;
   let altChar = document.getElementById('altText').value;
-  testCompleteSentence(keyName, altChar);
+  
+  testCompleteSentence(keyName, altChar, punctuation);
   countColor(altCount);
   count.innerHTML = altCount + "/" + maxChar;
   if(compareText(altChar, firstPerson) || compareText(altChar, secondPerson)){
@@ -74,7 +156,11 @@ let charCount = e => {
     displayWarningMatch(false, perspect, false);
   }
   displaySuccessMatch(compareText(altChar, colorList),color, true);
-  displaySuccessMatch(compareText(altChar, punctuation),punct, false);
+  if (upperCaseFound) {
+    displaySuccessMatch(compareText(altChar, punctuation),punct, false);
+  }else{
+    displaySuccessMatch(false,punct, false);
+  }
   displayFailMatch(compareText(altChar,tenseList),tense,true);
   displayWarningMatch(compareText(altChar, pronouns),gender,true);
 }
