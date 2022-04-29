@@ -54,16 +54,31 @@ function testCompleteSentence(char, text, puncList){
   let puncFound = false;
   let puncIndex = 1000;
   let capAftPunc = false;
-  //Check through end punctuation list
+
+  //Check first character is capital
+  if(text[0]!=null && text[0] != ' ' && text[0] == text[0].toUpperCase()){
+        upperCaseFound = true;
+        console.log('pass, first char is capital');
+      }else{
+        upperCaseFound = false;
+        console.log('fail, first char is not capital');
+      }
+
+    //Check if last character is punctuation.
+
+    
+
+//Check middle capitals and punctuations
   for (let i = 0; i < puncList.length; i++) {
     for(let j = 0; j < lastChar; j++){
+      if (text[lastChar-1] == puncList[i]) {
+        console.log('Pass, last char is punc');
+      }
       if(text[j] == puncList[i]){
         puncFound = true;
         puncIndex = j;
         console.log('punc found');
       }
-      console.log(j + ' = j');
-      console.log(puncIndex+1 + ' ' +puncIndex+2 + ' '+puncIndex+3);
       //check first letter in next 3 characters is uppercase
       if (j <= puncIndex + 3 && j != puncIndex) {
         //First char must be space
@@ -113,29 +128,6 @@ function testCompleteSentence(char, text, puncList){
       }
     }
   }
-    
-    //First character is not punctuation, last character is punctuation.
-    /*if (puncList[i] != text[0] && puncList[i] == text[lastChar-1]) {
-      if(text[0] == text[0].toUpperCase()){
-        upperCaseFound = true;
-      }else{
-        upperCaseFound = false;
-      }
-    }else{
-      upperCaseFound = false;
-    }*/
-      
-  
-  
-  /*
-   if (firstChar == true){
-    firstChar = false;
-    if(char == char.toUpperCase()){
-      upperCaseFound = true;
-    }
-  }if (text == '') {
-    firstChar = true;
-  }*/
 }
 
 
