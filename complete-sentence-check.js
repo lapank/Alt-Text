@@ -69,6 +69,47 @@ function lastCharCheck (text, puncList, textLength){
   }
 }
 
+function firstSpaceCheck(text, i){
+  if(charIsSpace(text[i])){
+   // console.log('Pass, space found at first char after punc');
+    return true;
+  }else{
+   // console.log('Fail, space not found at first space after punc');
+    return false;
+  }
+}
+
+function secondSpaceCheck(text, i, puncList){
+  if(charIsSpace(text[i])){
+     // console.log('Pass, space found at second char after punc');
+      return true;
+  }
+  if(charIsCapital(text[i]) && !charIsPunct(text[i],puncList)){
+   // console.log('Pass, second char is capital');
+    capAftPunc = true;
+    return true;
+  }
+  return false;
+}
+
+function thirdSpaceCheck(text, i, capAftPunc){
+  if(!capAftPunc){
+    if(charIsSpace(text[i])){
+     // console.log('Fail, no cap and 3rd space is space');
+      return false;
+    }else if(charIsCapital(text[i])){
+      //console.log('pass, first cap at 3rd space');
+      return true;
+    }else{
+      //console.log('fail, no capital in first 3 spaces.');
+      return false;
+    }
+  }else if(capAftPunc){
+    //console.log('pass, capital occured before 3rd space.');
+    return true;
+  }
+}
+
 //Middle char check
 function middleCapsPuncCheck (text, puncList, textLength){
   let puncFound = false;
@@ -83,41 +124,13 @@ function middleCapsPuncCheck (text, puncList, textLength){
     }
     //check first letter in next 3 characters is uppercase
     if (i == puncIndex + 1) {
-      if(charIsSpace(text[i])){
-       // console.log('Pass, space found at first char after punc');
-        return true;
-      }else{
-       // console.log('Fail, space not found at first space after punc');
-        return false;
-      }
+      firstSpaceCheck(text, i);
     }
     if (i == puncIndex + 2) {
-      if(charIsSpace(text[i])){
-       // console.log('Pass, space found at second char after punc');
-        return true;
-      }
-      if(charIsCapital(text[i]) && !charIsPunct(text[i],puncList)){
-       // console.log('Pass, second char is capital');
-        capAftPunc = true;
-        return true;
-      }
+      secondSpaceCheck(text, i, puncList);
     }
     if(i == puncIndex + 3){
-      if(!capAftPunc){
-        if(charIsSpace(text[i])){
-         // console.log('Fail, no cap and 3rd space is space');
-          return false;
-        }else if(charIsCapital(text[i])){
-          //console.log('pass, first cap at 3rd space');
-          return true;
-        }else{
-          //console.log('fail, no capital in first 3 spaces.');
-          return false;
-        }
-      }else if(capAftPunc){
-        //console.log('pass, capital occured before 3rd space.');
-        return true;
-      }
+      thirdSpaceCheck(text, i, capAftPunc);
     }
   }
   return false;

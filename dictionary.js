@@ -28,3 +28,6 @@ const secondPerson = ['You ','yall','ya\'ll',' you ','Your ',' your ','Yours ','
 const noNoWords = ['elderly', 'image of', 'picture of', ' I ', "we", 'our', 'my', 'me']; /* poster text*/
 const tenseList = ['ing', 'been', 'will', 'was', 'had'];
 
+const complexColorList = ['fuchsia', 'mauve','beige', 'vermillion','taupe', 'teal', 'sienna', 'khaki', 'cyan', 
+'crimson', 'cobalt', 'chartreuse', 'cerulean', 'cadmium', 'umber', 'azure', 'burgundy', 'indigo', 'magenta', 'sepia', 'scarlet' ];
+
