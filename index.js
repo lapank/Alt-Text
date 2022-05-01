@@ -42,165 +42,20 @@ let textClick = e => {
 }
 
 
-//Complete sentence check
-//First letter is capitalized
-//Ending punctuation found
-//First character cannot be punctuation
-//If capital or punctuation is removed fail status
-//First letter after punctuation must be capital
-
-// Char is null
-// Returns true/false
-let charIsNull = char => {
-  if(char == null){
-    console.log('pass, first char is null');
-    return true;
-  }
-  else return false;
-};
-
-// Char is punctuation
-// Returns true/false
-function charIsPunct (char, puncList){
-  for(let i = 0; i < puncList.length; i++){
-    if(char == puncList[i]) {
-      console.log('pass, first char is punc.');
-      return true;
-    }
-  }
-  return false;
-}
-
-// Char is space
-// Returns true/false
-let charIsSpace = char => {
-  if(char == ' '){
-    console.log('pass, first char is space');
-    return true;
-  }else return false;
-};
-
-
-// Char is capital
-// Returns true/false
-let charIsCapital = char => {
-  if(char == char.toUpperCase()){
-    console.log('pass, first char is capital');
-    return true;
-  }else return false;
-};
-
-// First char check
-// Returns true/false
-function firstCharCheck (text, puncList){
-  if(!charIsNull(text[0])){
-    if(!charIsPunct(text[0],puncList)){
-      if(!charIsSpace(text[0])){
-        if(charIsCapital(text[0])){
-          return true;
-        }else{
-          return false;
-        }
-      }else{
-        return false;
-      }
-    }else{
-      return false;
-    }
-  }else{
-    return false;
-  }
-}
-
-//Last char check
-
-//Middle char check
-
-
-function testCompleteSentence(char, text, puncList){
-  lastChar = text.length;
-  let puncFound = false;
-  let puncIndex = 1000;
-  let capAftPunc = false;
-
-  //Check first character is capital
-  firstCharCheck(text,puncList);
-
-    
-//Check middle capitals and punctuations
-  for (let i = 0; i < puncList.length; i++) {
-    for(let j = 0; j < lastChar; j++){
-      if (text[lastChar-1] == puncList[i]) {
-        console.log('Pass, last char is punc');
-      }
-      if(text[j] == puncList[i]){
-        puncFound = true;
-        puncIndex = j;
-        console.log('punc found');
-      }
-      //check first letter in next 3 characters is uppercase
-      if (j <= puncIndex + 3 && j != puncIndex) {
-        //First char must be space
-        if(j == (puncIndex + 1) && text[j] != ' '){
-          console.log('fail, no space after end punc.');
-          //second char must be space or capital
-        }else if(j == (puncIndex + 2)) {
-          if(text[j] == ' '){
-            console.log('second char is space');
-          }
-          //A .toUpperCase on a space is a match
-          else if(text[j] != ' ' && text[j] == text[j].toUpperCase()){
-            console.log('second char is uppercase');
-            capAftPunc = true;
-          }else{
-            console.log('fail, second char is not a space or capital');
-          }
-          
-        }else if(j == (puncIndex + 3)) {
-          console.log(capAftPunc);
-          if(!capAftPunc){
-            console.log(capAftPunc);
-            if(text[j] == ' '){
-              console.log('Fail, no cap and 3rd space is space');
-            }else if(text[j] == text[j].toUpperCase()){
-              console.log('pass, first cap at 3rd space');
-            }else{
-              console.log('fail, no capital in first 3 spaces.');
-            }
-          }else if(capAftPunc){
-            console.log(capAftPunc);
-            if(text[j] == ' '){
-              console.log('Pass, uppercase occures before this space');
-            }else{
-              console.log('pass, a capital already exists');
-            }
-          }
-          
-          //A .toUpperCase on a space is a match so != space is required
-          else if(text[j] != ' ' && text[j] == text[j].toUpperCase()){
-            console.log('second char is uppercase');
-            capAftPunc = true;
-          }
-        }
-          
-        
-      }
-    }
-  }
-}
 
 
 
-let charCount = e => {
+
+function charCount (e) {
   const keyName = e.key;
   
- 
   let altCount = document.getElementById('altText').value.length;
   let altChar = document.getElementById('altText').value;
-  
-  testCompleteSentence(keyName, altChar, punctuation);
+  console.log(testCompleteSentence(altChar, punctuation));
+  flags(testCompleteSentence(altChar, punctuation), punct);
   countColor(altCount);
   count.innerHTML = altCount + "/" + maxChar;
+  /*
   if(compareText(altChar, firstPerson) || compareText(altChar, secondPerson)){
     displayWarningMatch(true, perspect, false);
   }else{
@@ -213,10 +68,10 @@ let charCount = e => {
     displaySuccessMatch(false,punct, false);
   }
   displayFailMatch(compareText(altChar,tenseList),tense,true);
-  displayWarningMatch(compareText(altChar, pronouns),gender,true);
+  displayWarningMatch(compareText(altChar, pronouns),gender,true);*/
 }
 
-function displaySuccessMatch(func,id,warning){
+/*function displaySuccessMatch(func,id,warning){
   id.classList.remove('hide');
   if(func){
     id.innerHTML = "Pass";
@@ -263,7 +118,7 @@ function displayWarningMatch(func,id,warning){
     id.style.backgroundColor = '#28A745';
     id.style.color = '#FFF';
   }
-} 
+} */
 
 let countColor = (altCount) =>{
   switch (true) {
