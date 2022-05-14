@@ -5,6 +5,8 @@
 //If capital or punctuation is removed fail status
 //First letter after punctuation must be capital
 
+const punct = document.getElementById('punct');
+
 // Char is null
 // Returns true/false
 let charIsNull = char => {
@@ -138,16 +140,14 @@ function middleCapsPuncCheck (text, puncList, textLength){
 
 // Sentence if Complete (Capitals and punctuation)
 // Returns true/false
-function testCompleteSentence(text, textLength, puncList){
+function testCompleteSentence(text, textLength){
   textLength--;
   //Check first character is capital
   if(!charIsNull(text[0])){
-    if(firstCharCheck(text,puncList) && lastCharCheck (text, puncList, textLength) && middleCapsPuncCheck (text, puncList, textLength)){
-      console.log('check returned true');
-      return true;
+    if(firstCharCheck(text,punctuationList) && lastCharCheck (text, punctuationList, textLength) && middleCapsPuncCheck (text, punctuationList, textLength)){
+      flag('pass', punct);
     }else{
-      console.log('check returned flase');
-      return false;
+      flag('fail', punct);
     }
   }
 }

@@ -1,6 +1,10 @@
 // Alt text should have:
-const punctuation =['.','!','?'];
+const punctuationList =['.','!','?'];
+
+const firstPerson = ['I ',' me ','Me ',' my ','My ',' mine ', 'Mine ',' we ', 'We ' ,' us ', 'Us ',' our ', 'Our ',' ours ', 'Ours '];
+const secondPerson = ['You ','yall','ya\'ll',' you ','Your ',' your ','Yours ',' yours ','You\'re ',' you\'re '];
 const thirdPerson = ['it', 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves'];
+
 
 // Alt text recommendations:
 const colorList = ['red', 'orange', 'yellow', 'green', 'blue','purple', 
@@ -20,9 +24,6 @@ const age = ['young adult', 'adult', 'child', 'infant'];
 
 // Alt text might have:
 const pronouns = [' he ', ' him ', ' his ', ' she ', ' her ', ' hers ', ' man ', ' woman ', ' lady ', ' gentlemen ', 'guy', 'gal', 'man', 'woman'];
-const firstPerson = ['I ',' me ','Me ',' my ','My ',' mine ', 'Mine ',' we ', 'We ' ,' us ', 'Us ',' our ', 'Our ',' ours ', 'Ours '];
-const secondPerson = ['You ','yall','ya\'ll',' you ','Your ',' your ','Yours ',' yours ','You\'re ',' you\'re '];
-
 
 // Alt text should not have:
 const noNoWords = ['elderly', 'image of', 'picture of', ' I ', "we", 'our', 'my', 'me']; /* poster text*/

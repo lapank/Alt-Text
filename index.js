@@ -1,8 +1,9 @@
 
 const maxChar = 150;
 const count = document.getElementById('count');
-const punct = document.getElementById('punct');
+
 const color = document.getElementById('color');
+/*
 const punctuation =['.','!','?'];
 const colorList = ['red', 'orange', 'yellow', 'green', 'blue','purple', 
                   'pink', 'brown', 'gold', 'bronze', 'silver', 'black', 'white'];
@@ -22,8 +23,8 @@ const size = ['big', 'small', 'tall', 'wide', 'short', 'large', 'heavy',
 const medium = ['radiograph', '3D model', 'drawing, painting', '35mm slide', 'print', 'scientific illustration'];
 const condition = ['rips', 'tears', 'flaking', 'marks', 'weathered', 'shiny'];
 const age = ['young adult', 'adult', 'child', 'infant'];
-const noNoWords = ['elderly', 'image of', 'picture of', ' I ', "we", 'our', 'my', 'me']; /* poster text*/
-const tenseList = ['ing', 'been', 'will', 'was', 'had'];
+const noNoWords = ['elderly', 'image of', 'picture of', ' I ', "we", 'our', 'my', 'me']; 
+const tenseList = ['ing', 'been', 'will', 'was', 'had'];*/
 
 let click = false;
 successPunct = document.getElementById('sucpunct');
@@ -50,12 +51,15 @@ function charCount (e) {
   const keyName = e.key;
   
   let textLength = document.getElementById('altText').value.length;
-  let altChar = document.getElementById('altText').value;
-  flags(testCompleteSentence(altChar, textLength, punctuation), punct);
+  let textValue = document.getElementById('altText').value;
+  testCompleteSentence(textValue, textLength);
+  
 
   countColor(textLength);
   count.innerHTML = textLength + "/" + maxChar;
-  
+
+  testPerspective(textValue);
+
   /*
   if(compareText(altChar, firstPerson) || compareText(altChar, secondPerson)){
     displayWarningMatch(true, perspect, false);
@@ -134,15 +138,7 @@ let countColor = (altCount) =>{
   }
 } 
 
-function compareText(text, wordList){
-  for(let i= 0; i < wordList.length; i++){
-   let index = text.indexOf(wordList[i]);
-    if(index != -1){
-      return true;
-    }
-  }
-  return (false);
-}
+
 
 document.addEventListener('keyup', charCount);
 document.addEventListener('click', textClick);
