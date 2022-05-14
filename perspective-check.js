@@ -16,11 +16,13 @@ function testPerspective(text){
 		}else{
 			flag('pass', perspect);
 		}
+	}else if (secondPersonCheck(text) || firstPersonCheck(text)){
+		flag('review', perspect);
 	}else if(emptyText(text)){
 		flag('fail', perspect);
 	}else{
 		
-		flag('fail', perspect);
+		flag('pass', perspect);
 	}
 }
 
