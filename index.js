@@ -49,12 +49,13 @@ let textClick = e => {
 function charCount (e) {
   const keyName = e.key;
   
-  let altCount = document.getElementById('altText').value.length;
+  let textLength = document.getElementById('altText').value.length;
   let altChar = document.getElementById('altText').value;
-  console.log(testCompleteSentence(altChar, punctuation));
-  flags(testCompleteSentence(altChar, punctuation), punct);
-  countColor(altCount);
-  count.innerHTML = altCount + "/" + maxChar;
+  flags(testCompleteSentence(altChar, textLength, punctuation), punct);
+
+  countColor(textLength);
+  count.innerHTML = textLength + "/" + maxChar;
+  
   /*
   if(compareText(altChar, firstPerson) || compareText(altChar, secondPerson)){
     displayWarningMatch(true, perspect, false);

@@ -138,8 +138,8 @@ function middleCapsPuncCheck (text, puncList, textLength){
 
 // Sentence if Complete (Capitals and punctuation)
 // Returns true/false
-function testCompleteSentence(text, puncList){
-  let textLength = text.length -1;
+function testCompleteSentence(text, textLength, puncList){
+  textLength--;
   //Check first character is capital
   if(!charIsNull(text[0])){
     if(firstCharCheck(text,puncList) && lastCharCheck (text, puncList, textLength) && middleCapsPuncCheck (text, puncList, textLength)){

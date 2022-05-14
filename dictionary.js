@@ -29,5 +29,5 @@ const noNoWords = ['elderly', 'image of', 'picture of', ' I ', "we", 'our', 'my'
 const tenseList = ['ing', 'been', 'will', 'was', 'had'];
 
 const complexColorList = ['fuchsia', 'mauve','beige', 'vermillion','taupe', 'teal', 'sienna', 'khaki', 'cyan', 
-'crimson', 'cobalt', 'chartreuse', 'cerulean', 'cadmium', 'umber', 'azure', 'burgundy', 'indigo', 'magenta', 'sepia', 'scarlet' ];
+'crimson', 'cobalt', 'chartreuse', 'cerulean', 'cadmium', 'umber', 'azure', 'burgundy', 'indigo', 'magenta', 'sepia', 'scarlet', 'ultramarine' ];
 
