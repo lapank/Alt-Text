@@ -1,14 +1,26 @@
 const perspect = document.getElementById('perspect');
 
+function emptyText(text){
+	if (text == ''){
+		return true;
+	}else{
+		return false;
+	}
+
+}
+
 function testPerspective(text){
 	if(thirdPersonCheck(text)){
-		if(!secondPersonCheck(text)){
-			if(!firstPersonCheck(text)){
-				flag('pass', perspect);
-			}
-		} 
+		if(secondPersonCheck(text) || firstPersonCheck(text)){
+			flag('review', perspect);
+		}else{
+			flag('pass', perspect);
+		}
+	}else if(emptyText(text)){
+		flag('fail', perspect);
 	}else{
-		flag('review', perspect);
+		
+		flag('fail', perspect);
 	}
 }
 
