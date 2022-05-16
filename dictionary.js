@@ -50,12 +50,8 @@ const comboFirstArrays = combineArrays(firstPersonSpaces, firstPersonCapital);
 const comboSecondArrays = combineArrays(secondPersonSpaces, secondPersonCapital);
 const comboThirdArrays = combineArrays(thirdPersonSpaces, thirdPersonCapital);
 
-console.log(comboThirdArrays);
-console.log(comboFirstArrays);
-console.log(comboSecondArrays);
-
 function addSpaces(array){
-    return (array.map(x => (' ' + x + ' ')));
+    return (array.map(x => (' ' + x)));
 }
 
 function addCapital(array){

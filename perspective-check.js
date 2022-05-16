@@ -27,7 +27,7 @@ function testPerspective(text){
 }
 
 function firstPersonCheck(text){
-	if(compareText(text, firstPerson)){
+	if(compareText(text, comboFirstArrays)){
 		return true;
 	}else{
 		return false;
@@ -36,7 +36,7 @@ function firstPersonCheck(text){
 }
 
 function secondPersonCheck(text){
-	if(compareText(text, secondPerson)){
+	if(compareText(text, comboSecondArrays)){
 			return true;
 	}else{
 		return false;
@@ -45,7 +45,7 @@ function secondPersonCheck(text){
 }
 
 function thirdPersonCheck(text){
-	if(compareText(text, thirdPerson)){
+	if(compareText(text, comboThirdArrays)){
 		return true;
 	}else{
 		return false;
