@@ -1,8 +1,8 @@
 // Alt text should have:
 const punctuationList =['.','!','?'];
 
-const firstPerson = ['I ',' me ','Me ',' my ','My ',' mine ', 'Mine ',' we ', 'We ' ,' us ', 'Us ',' our ', 'Our ',' ours ', 'Ours '];
-const secondPerson = ['You ','yall','ya\'ll',' you ','Your ',' your ','Yours ',' yours ','You\'re ',' you\'re '];
+const firstPerson = ['I','me','my','mine','we','us','our','ours'];
+const secondPerson = ['you','yall','ya\'ll','your','yours','you\'re'];
 const thirdPerson = ['it', 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves'];
 
 
@@ -23,12 +23,45 @@ const condition = ['rips', 'tears', 'flaking', 'marks', 'weathered', 'shiny'];
 const age = ['young adult', 'adult', 'child', 'infant'];
 
 // Alt text might have:
-const pronouns = [' he ', ' him ', ' his ', ' she ', ' her ', ' hers ', ' man ', ' woman ', ' lady ', ' gentlemen ', 'guy', 'gal', 'man', 'woman'];
+const pronouns = ['he', 'him', 'his', 'she', 'her', 'hers', 'man', 'woman', 'lady', 'gentlemen', 'guy', 'gal', 'man', 'woman'];
 
 // Alt text should not have:
-const noNoWords = ['elderly', 'image of', 'picture of', ' I ', "we", 'our', 'my', 'me']; /* poster text*/
+const noNoWords = ['elderly', 'image of', 'picture of', 'I', "we", 'our', 'my', 'me']; /* poster text*/
 const tenseList = ['ing', 'been', 'will', 'was', 'had'];
 
 const complexColorList = ['fuchsia', 'mauve','beige', 'vermillion','taupe', 'teal', 'sienna', 'khaki', 'cyan', 
 'crimson', 'cobalt', 'chartreuse', 'cerulean', 'cadmium', 'umber', 'azure', 'burgundy', 'indigo', 'magenta', 'sepia', 'scarlet', 'ultramarine' ];
 
+
+//Capital no space before, space after.
+//No capital space before and after.
+
+//.concat, .forEach, .map, .push
+
+const firstPersonSpaces = addSpaces(firstPerson);
+const secondPersonSpaces = addSpaces(secondPerson);
+const thirdPersonSpaces = addSpaces(thirdPerson);
+
+const firstPersonCapital = addCapital(firstPerson);
+const secondPersonCapital = addCapital(secondPerson);
+const thirdPersonCapital = addCapital(thirdPerson);
+
+const comboFirstArrays = combineArrays(firstPersonSpaces, firstPersonCapital);
+const comboSecondArrays = combineArrays(secondPersonSpaces, secondPersonCapital);
+const comboThirdArrays = combineArrays(thirdPersonSpaces, thirdPersonCapital);
+
+console.log(comboThirdArrays);
+console.log(comboFirstArrays);
+console.log(comboSecondArrays);
+
+function addSpaces(array){
+    return (array.map(x => (' ' + x + ' ')));
+}
+
+function addCapital(array){
+    return (array.map(x => (x[0].toUpperCase() + x.substring(1) + ' ')));  
+}
+
+function combineArrays(arrayOne, arrayTwo){
+    return (arrayOne.concat(arrayTwo));
+}
