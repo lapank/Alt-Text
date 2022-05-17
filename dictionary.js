@@ -5,6 +5,8 @@ const firstPerson = ['I','me','my','mine','we','us','our','ours'];
 const secondPerson = ['you','yall','ya\'ll','your','yours','you\'re'];
 const thirdPerson = ['it', 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves'];
 
+const tenseList = ['been', 'will', 'was', 'had', 'were', 'did','went','have'];
+
 
 // Alt text recommendations:
 const colorList = ['red', 'orange', 'yellow', 'green', 'blue','purple', 
@@ -27,7 +29,7 @@ const pronouns = ['he', 'him', 'his', 'she', 'her', 'hers', 'man', 'woman', 'lad
 
 // Alt text should not have:
 const noNoWords = ['elderly', 'image of', 'picture of', 'I', "we", 'our', 'my', 'me']; /* poster text*/
-const tenseList = ['ing', 'been', 'will', 'was', 'had'];
+
 
 const complexColorList = ['fuchsia', 'mauve','beige', 'vermillion','taupe', 'teal', 'sienna', 'khaki', 'cyan', 
 'crimson', 'cobalt', 'chartreuse', 'cerulean', 'cadmium', 'umber', 'azure', 'burgundy', 'indigo', 'magenta', 'sepia', 'scarlet', 'ultramarine' ];
@@ -41,14 +43,17 @@ const complexColorList = ['fuchsia', 'mauve','beige', 'vermillion','taupe', 'tea
 const firstPersonSpaces = addSpaces(firstPerson);
 const secondPersonSpaces = addSpaces(secondPerson);
 const thirdPersonSpaces = addSpaces(thirdPerson);
+const tenseSpaces = addSpaces(tenseList);
 
 const firstPersonCapital = addCapital(firstPerson);
 const secondPersonCapital = addCapital(secondPerson);
 const thirdPersonCapital = addCapital(thirdPerson);
+const tenseCapital = addCapital(tenseList);
 
 const comboFirstArrays = combineArrays(firstPersonSpaces, firstPersonCapital);
 const comboSecondArrays = combineArrays(secondPersonSpaces, secondPersonCapital);
 const comboThirdArrays = combineArrays(thirdPersonSpaces, thirdPersonCapital);
+const comboTenseArrays = combineArrays(tenseSpaces, tenseCapital);
 
 function addSpaces(array){
     return (array.map(x => (' ' + x)));

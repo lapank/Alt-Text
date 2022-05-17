@@ -60,6 +60,8 @@ function charCount (e) {
 
   testPerspective(textValue);
 
+  tenseCheck(textValue);
+
   /*
   if(compareText(altChar, firstPerson) || compareText(altChar, secondPerson)){
     displayWarningMatch(true, perspect, false);

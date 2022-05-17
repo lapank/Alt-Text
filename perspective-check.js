@@ -1,4 +1,5 @@
 const perspect = document.getElementById('perspect');
+const tense = document.getElementById('tense');
 
 function emptyText(text){
 	if (text == ''){
@@ -49,6 +50,16 @@ function thirdPersonCheck(text){
 		return true;
 	}else{
 		return false;
+	}
+}
+
+function tenseCheck(text){
+	if(compareText(text, comboTenseArrays)){
+		flag('review', tense);
+	}else if(emptyText(text)){
+		flag('fail', tense);
+	}else{
+		flag('pass', tense);
 	}
 }
 
