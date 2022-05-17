@@ -3,28 +3,6 @@ const maxChar = 150;
 const count = document.getElementById('count');
 
 const color = document.getElementById('color');
-/*
-const punctuation =['.','!','?'];
-const colorList = ['red', 'orange', 'yellow', 'green', 'blue','purple', 
-                  'pink', 'brown', 'gold', 'bronze', 'silver', 'black', 'white'];
-const planeParts = ['wing', 'body', 'tail', 'wheels', 'engine', 'nose', 'flightdeck'];
-const shapes = ['circle', 'triangle', 'rectangle', 'oval', 'square', 'pentagon', 
-                  'hexagon', 'octagon', 'cube', 'cone', 'cylinder', 'sphere'];
-const pronouns = [' he ', ' him ', ' his ', ' she ', ' her ', ' hers ', ' man ', ' woman ', ' lady ', ' gentlemen ', 'guy', 'gal', 'man', 'woman'];
-const emotions = ['happy', 'sad', 'angrey', 'solumn', 'serious'];
-const thirdPerson = ['it', 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves'];
-const firstPerson = ['I ',' me ','Me ',' my ','My ',' mine ', 'Mine ',' we ', 'We ' ,' us ', 'Us ',' our ', 'Our ',' ours ', 'Ours '];
-const secondPerson = ['You ','yall','ya\'ll',' you ','Your ',' your ','Yours ',' yours ','You\'re ',' you\'re '];
-const positions = ['left', 'right', 'top', 'bottom', 'around', 'under', 'below', 
-                  'behind', 'beside', 'between', 'after', 'across', 'inside', 
-                  'near', 'on', 'outside', 'forward', 'backward', 'side', 'top'];
-const size = ['big', 'small', 'tall', 'wide', 'short', 'large', 'heavy', 
-            'light', 'thin', 'thick', 'long', 'narrow', 'meters', 'feet', 'inches', 'centemeters'];
-const medium = ['radiograph', '3D model', 'drawing, painting', '35mm slide', 'print', 'scientific illustration'];
-const condition = ['rips', 'tears', 'flaking', 'marks', 'weathered', 'shiny'];
-const age = ['young adult', 'adult', 'child', 'infant'];
-const noNoWords = ['elderly', 'image of', 'picture of', ' I ', "we", 'our', 'my', 'me']; 
-const tenseList = ['ing', 'been', 'will', 'was', 'had'];*/
 
 let click = false;
 successPunct = document.getElementById('sucpunct');
@@ -62,70 +40,10 @@ function charCount (e) {
 
   tenseCheck(textValue);
 
-  /*
-  if(compareText(altChar, firstPerson) || compareText(altChar, secondPerson)){
-    displayWarningMatch(true, perspect, false);
-  }else{
-    displayWarningMatch(false, perspect, false);
-  }
-  displaySuccessMatch(compareText(altChar, colorList),color, true);
-  if (upperCaseFound) {
-    displaySuccessMatch(compareText(altChar, punctuation),punct, false);
-  }else{
-    displaySuccessMatch(false,punct, false);
-  }
-  displayFailMatch(compareText(altChar,tenseList),tense,true);
-  displayWarningMatch(compareText(altChar, pronouns),gender,true);*/
 }
 
-/*function displaySuccessMatch(func,id,warning){
-  id.classList.remove('hide');
-  if(func){
-    id.innerHTML = "Pass";
-    id.style.backgroundColor = '#28A745';
-    id.style.color = '#FFF';
-  }else{
-    if(warning){
-      id.innerHTML = "Review";
-      id.style.backgroundColor = '#FFC107';
-      id.style.color = '#343A40';
-    }
-    else{
-      id.innerHTML = "Fail";
-      id.style.backgroundColor = '#DC3545';
-      id.style.color = '#FFF';
-    }
-    
-  }  
-}
 
-function displayFailMatch(func,id,warning){
-  id.classList.remove('hide');
-  if(func){
-    id.innerHTML = "Fail";
-      id.style.backgroundColor = '#DC3545';
-      id.style.color = '#FFF';
     
-  }else{
-      id.innerHTML = "Review";
-      id.style.backgroundColor = '#FFC107';
-      id.style.color = '#343A40';
-    }
-  } 
-
-function displayWarningMatch(func,id,warning){
-  id.classList.remove('hide');
-  if(func){
-    id.innerHTML = "Review";
-    id.style.backgroundColor = '#FFC107';
-    id.style.color = '#343A40';
-    
-  }else{
-    id.innerHTML = "Pass";
-    id.style.backgroundColor = '#28A745';
-    id.style.color = '#FFF';
-  }
-} */
 
 let countColor = (altCount) =>{
   switch (true) {

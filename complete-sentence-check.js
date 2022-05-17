@@ -145,9 +145,24 @@ function testCompleteSentence(text, textLength){
   //Check first character is capital
   if(!charIsNull(text[0])){
     if(firstCharCheck(text,punctuationList) && lastCharCheck (text, punctuationList, textLength) && middleCapsPuncCheck (text, punctuationList, textLength)){
-      flag('pass', punct);
+      if(!singleWordCheck(text)){
+        flag('pass', punct);
+      }else{
+        flag('fail', punct);
+      }
     }else{
       flag('fail', punct);
     }
+  }
+}
+
+function singleWordCheck(text){
+  let arr = text.split(' ');
+  let wordCount = arr.filter(word => word !== '').length;
+  if(wordCount <= 1){
+    return true;
+  }
+  else{
+    return false;
   }
 }
